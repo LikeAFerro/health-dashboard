@@ -1,1 +1,11 @@
+Requirements:
+click>=8.1.0
 psutil>=6.0.0
+pytimeparse>=1.2.0
+subprocess32>=3.5.4
+
+Behavior
+Default (no flags): Same as before: print system stats once, then GPU (still exits with code 1 if nvidia-smi fails in that mode).
+--log-file PATH: Runs until you press Ctrl+C. After each 5-minute wait (default), it appends a plain-text snapshot (no ANSI colors) with an ISO timestamp, system block, and GPU block. GPU errors are written into the log instead of killing the process.
+Optional
+--interval SEC — change the sleep between writes (default 300). Must be ≥ 1.
